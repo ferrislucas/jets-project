@@ -8,6 +8,9 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
 # Webpacker needs yarn too
 RUN npm install -g yarn
 
-RUN gem install bundler rake jets
+# RUN gem install bundler rake jets
+WORKDIR /root
+COPY setup_jets.sh /root/setup_jets.sh
+RUN bash -eux /root/setup_jets.sh
 
 WORKDIR /app
